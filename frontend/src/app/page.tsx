@@ -661,7 +661,7 @@ export default function Dashboard() {
                               <div style={{ fontSize: '18px', fontWeight: 700, color: 'var(--ink)' }}>{med.name}</div>
                               <div style={{ fontSize: '14px', color: 'var(--ink-light)', marginTop: '2px' }}>{med.dosage} · {med.frequency}</div>
                               <div style={{ display: 'flex', gap: '6px', marginTop: '10px' }}>
-                                {med.reminderTimes.map((time, i) => (
+                                {med.reminderTimes.map((time: string, i: number) => (
                                   <span key={i} style={{ fontSize: '12px', background: 'rgba(0,0,0,0.04)', padding: '4px 8px', borderRadius: '6px', fontWeight: 600, color: 'var(--ink)' }}>⏰ {time}</span>
                                 ))}
                               </div>
