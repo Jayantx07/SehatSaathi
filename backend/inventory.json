@@ -1,0 +1,101 @@
+{
+  "jayantkumawat107@gmail.com": {
+    "medicines": [
+      {
+        "id": "9e722688-7cae-4af8-a3ef-5dc3b067d83d",
+        "name": "Calpol",
+        "dosage": "250/5",
+        "frequency": "Q6H",
+        "stockLeft": 8,
+        "reminderTimes": [
+          "09:00"
+        ],
+        "lowStockAlertSent": false
+      },
+      {
+        "id": "74fdeff6-f82e-4427-9f0a-511fd43371e5",
+        "name": "Delcon",
+        "dosage": "3 mL",
+        "frequency": "TDS",
+        "stockLeft": 9,
+        "reminderTimes": [
+          "09:00"
+        ],
+        "lowStockAlertSent": false
+      },
+      {
+        "id": "cfd429e2-ec2f-46e7-81d3-6e3e96604afd",
+        "name": "Levolin",
+        "dosage": "3 mL",
+        "frequency": "TDS",
+        "stockLeft": 13,
+        "reminderTimes": [
+          "09:00"
+        ],
+        "lowStockAlertSent": false
+      },
+      {
+        "id": "45d1073b-4efd-4ff7-93f1-5366fb950222",
+        "name": "Meftal-P",
+        "dosage": "100/5",
+        "frequency": "SOS",
+        "stockLeft": 10,
+        "reminderTimes": [
+          "09:00"
+        ],
+        "lowStockAlertSent": false
+      }
+    ]
+  },
+  "jayantkumawat29@gmail.com": {
+    "medicines": [
+      {
+        "id": "cd2676b7-a319-42be-87da-86db029b1826",
+        "name": "Calpol (250/5)",
+        "dosage": "4 mL",
+        "frequency": "Every 6 hours",
+        "stockLeft": 4,
+        "reminderTimes": [
+          "06:00",
+          "12:00",
+          "18:00",
+          "23:59"
+        ],
+        "lowStockAlertSent": false
+      },
+      {
+        "id": "852b573d-0d55-409d-b593-32cdd256c653",
+        "name": "Delcon",
+        "dosage": "3 mL",
+        "frequency": "Three times a day",
+        "stockLeft": 10,
+        "reminderTimes": [
+          "09:00"
+        ],
+        "lowStockAlertSent": false
+      },
+      {
+        "id": "341c0c60-1c4e-43ab-9ff8-f40524115000",
+        "name": "Levolin",
+        "dosage": "3 mL",
+        "frequency": "Three times a day",
+        "stockLeft": 10,
+        "reminderTimes": [
+          "09:00"
+        ],
+        "lowStockAlertSent": false
+      },
+      {
+        "id": "79669e44-6d38-43a9-956f-b71c6b4ecf40",
+        "name": "Meftal-P (100/5)",
+        "dosage": "3 mL",
+        "frequency": "SOS (As needed)",
+        "stockLeft": 10,
+        "reminderTimes": [
+          "09:00"
+        ],
+        "lowStockAlertSent": false
+      }
+    ]
+  }
+}
