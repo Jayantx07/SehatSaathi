@@ -58,9 +58,7 @@ interface AnalysisResult {
   processingTime: string;
 }
 
-const BACKEND_URL = typeof window !== 'undefined'
-  ? `http://${window.location.hostname}:5000`
-  : (process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:5000");
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:5000";
 
 const DEMO_RESULT: AnalysisResult = {
   medicines: [
