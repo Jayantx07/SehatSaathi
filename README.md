@@ -1,28 +1,58 @@
 <div align="center">
 
-# Sehat Saathi – Multi-Agent AI Medication Concierge
+# Sehat Saathi
 
-### Intelligent Medication Tracking & Safety Platform | Kaggle Hackathon
+### AI-Powered Multi-Agent Clinical Decision Support & Medication Concierge
+
+**Kaggle Google AI Agents Hackathon 2026 Submission**
 
 ![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js)
 ![Node.js](https://img.shields.io/badge/Node.js-Backend-green?logo=node.js)
 ![Express](https://img.shields.io/badge/Express.js-API-black?logo=express)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-Styling-38BDF8?logo=tailwindcss)
 ![Framer Motion](https://img.shields.io/badge/Framer_Motion-Animations-blue?logo=framer)
-![MCP](https://img.shields.io/badge/MCP-Tooling-orange)
-![Cron](https://img.shields.io/badge/Node--Cron-Background_Jobs-yellow)
+![LangChain](https://img.shields.io/badge/LangChain-AI-success)
+![Groq](https://img.shields.io/badge/Groq-Llama_3.3-purple)
+![MCP](https://img.shields.io/badge/MCP-Tool_Calling-orange)
+![Node Cron](https://img.shields.io/badge/Node--Cron-Automation-yellow)
+![Resend](https://img.shields.io/badge/Resend-Email_API-black)
 
-### Bridging the gap between getting a prescription and safely consuming it day-to-day.
+### Transforming handwritten prescriptions into intelligent medication safety workflows using Multi-Agent AI.
 
 </div>
 
 ---
 
+# Multi-Agent AI Workflow
+
+<p align="center">
+  <img src="./frontend/assets/workflow.png" alt="Sehat Saathi Multi-Agent Workflow" width="900"/>
+</p>
+
+---
+
 # Overview
 
-Sehat Saathi acts as an intelligent, automated concierge for patients managing multiple medications. It bridges the gap between getting a prescription and safely consuming it day-to-day.
+Every day, millions of patients forget doses, misunderstand prescriptions, or unknowingly combine medications that may interact.
 
-The platform combines an advanced multi-agent AI pipeline for prescription analysis with a beautiful, responsive tracking dashboard, ensuring medication safety, schedule adherence, and timely refills.
+Sehat Saathi is an AI-powered Medication Concierge that transforms a handwritten prescription into a safe, intelligent, and interactive medication management experience.
+
+Instead of simply extracting text, Sehat Saathi orchestrates multiple AI agents that understand prescriptions, identify clinically meaningful medication risks, automate reminders, monitor inventory, and proactively help patients stay adherent to treatment.
+
+---
+
+# Why Multi-Agent AI?
+
+Traditional OCR systems simply extract text from prescriptions. 
+
+Sehat Saathi goes beyond OCR by orchestrating multiple AI agents that collaborate to:
+
+- Understand handwritten prescriptions
+- Review medication safety
+- Trigger autonomous actions when required
+- Improve patient adherence through reminders and inventory tracking
+
+This modular architecture allows future integration with standardized clinical knowledge bases such as RxNorm, SNOMED CT, HL7 FHIR, and DrugBank.
 
 ---
 
@@ -48,7 +78,7 @@ The platform combines an advanced multi-agent AI pipeline for prescription analy
 ## 3. Automated Refills & Alerts
 
 - **Cron Jobs** — A background Node-Cron service runs every minute to check medication schedules and stock levels.
-- **Email Integration** — Automatically sends beautiful HTML emails via Resend when it's time to take a pill.
+- **Email Integration** — Automatically sends beautiful HTML emails via Resend when it's time to take a pill. (Note: To comply with Resend API free-tier limits, all live demo alerts are securely routed to the developer's verified inbox while showing a success state in the UI).
 - **Low Stock Workflow** — If stock drops to 3 or below:
   - The UI turns red.
   - A "🛒 Order Refill" button appears, linking directly to the 1mg search page for that specific medicine.
@@ -58,16 +88,20 @@ The platform combines an advanced multi-agent AI pipeline for prescription analy
 
 # How to Demo to Judges
 
-### 1. Start the Server
+### 1. Install the dependencies
+Install the backend dependencies: `cd backend` and then `npm install`.
+Similarly, install the frontend dependencies: `cd frontend` and then `npm install`.
+
+### 2. Start the Server
 Make sure both `npm run dev` in frontend and backend are running.
 
-### 2. Upload a Prescription
+### 3. Upload a Prescription
 Use the dropzone to upload a sample prescription. Watch the 4-step loading animation (it looks great on screen).
 
-### 3. Show the Multi-Agent Logic
+### 4. Show the Multi-Agent Logic
 Point out the terminal logs on the backend showing the PII masking taking effect and the three agents coordinating.
 
-### 4. Dashboard Interaction
+### 5. Dashboard Interaction
 Scroll down to the Live Dashboard.
 - Click **Take Dose** and watch the stock drop.
 - Click the **Simulate Live Alert** cheat button to show them how the automated email reminder looks in your inbox.
@@ -117,14 +151,71 @@ Sehat Saathi addresses this by providing an all-in-one platform that proactively
 
 ---
 
-# Developer
+# Future Roadmap
 
-### Jayant Kumawat
+- RxNorm Medication Normalization
+- DrugBank Knowledge Integration
+- HL7 FHIR Support
+- SNOMED CT Clinical Concepts
+- Doctor Dashboard
+- Electronic Health Record Integration
+- Wearable Device Support
+- Voice Medication Assistant
+- Personalized AI Medication Coach
+- Hospital Deployment
 
-Frontend-Focused Full-Stack Developer
+---
 
-Portfolio  
-http://fun-project-875083.framer.app/
+# Developers
+
+## Jayant Kumawat
+
+**Backend Developer • AI Engineer**
+
+Responsible for:
+
+- Multi-Agent AI Architecture
+- LangChain Agent Orchestration
+- Groq LLM Integration
+- Clinical Decision Support System (CDSS)
+- Vision Prescription Analysis Pipeline
+- MCP Integration
+- Express.js Backend APIs
+- Secure PII Masking Middleware
+- Email Automation
+- Node-Cron Scheduler
+
+**Portfolio:**
+https://fun-project-875083.framer.app/
+
+**GitHub:**
+https://github.com/Jayantx07
+
+**LinkedIn:**
+https://www.linkedin.com/in/jayantkumawat007/
+
+---
+
+## Kashish Yadav
+
+**Frontend Developer • UI/UX Designer**
+
+Responsible for:
+
+- Next.js Frontend
+- Responsive UI
+- TailwindCSS Components
+- Framer Motion Animations
+- Dashboard Experience
+- Glassmorphism Design
+- User Experience
+- Medication Tracking UI
+
+**GitHub:**
+https://github.com/KashishYadav09/
+
+**LinkedIn:**
+https://www.linkedin.com/in/kashishyadav09
 
 ---
 
@@ -133,6 +224,14 @@ http://fun-project-875083.framer.app/
 If you find this project valuable:
 - Star the repository
 - Share feedback
+
+---
+
+# Acknowledgements
+
+Built as part of the **Kaggle Google AI Agents Hackathon 2026**.
+
+This project demonstrates how Multi-Agent AI, Clinical Decision Support Systems (CDSS), and autonomous workflows can improve medication safety and adherence while maintaining a privacy-aware architecture.
 
 ---
 
