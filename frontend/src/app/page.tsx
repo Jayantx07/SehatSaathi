@@ -532,6 +532,9 @@ export default function Dashboard() {
               onChange={(e) => setPatientEmail(e.target.value)}
               disabled={isLoading}
             />
+            <div className="text-xs text-slate-500 mt-1">
+              Note: Due to API free-tier restrictions, demo alerts are safely routed to our verified developer inbox.
+            </div>
             
             <div style={{ marginTop: '16px', display: 'flex', alignItems: 'center', gap: '12px' }}>
               <button 

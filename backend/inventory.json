@@ -97,5 +97,97 @@
         "lowStockAlertSent": false
       }
     ]
+  },
+  "jayantkumawat07@gmail.com": {
+    "medicines": [
+      {
+        "id": "6f8b3bde-f2a5-4da0-8e81-d08e36b127e3",
+        "name": "Salbutamol",
+        "dosage": "100mcg",
+        "frequency": "1 inhaler BD",
+        "stockLeft": 3,
+        "reminderTimes": [
+          "09:00"
+        ],
+        "lowStockAlertSent": true
+      },
+      {
+        "id": "4e39e63a-fbd0-4472-8c0c-9eddbcd036fa",
+        "name": "Ventolin",
+        "dosage": "0g",
+        "frequency": "1 inhaler BD",
+        "stockLeft": 10,
+        "reminderTimes": [
+          "09:00"
+        ],
+        "lowStockAlertSent": false
+      },
+      {
+        "id": "a122835d-9bff-4259-a4e5-78a29b7c1f89",
+        "name": "Citalopram",
+        "dosage": "20mg",
+        "frequency": "2 tablets OD",
+        "stockLeft": 10,
+        "reminderTimes": [
+          "09:00"
+        ],
+        "lowStockAlertSent": false
+      },
+      {
+        "id": "980789be-2328-4e28-8fcd-5b84888d0e02",
+        "name": "Captopril",
+        "dosage": "50mg",
+        "frequency": "1 tablet OD",
+        "stockLeft": 10,
+        "reminderTimes": [
+          "09:00"
+        ],
+        "lowStockAlertSent": false
+      },
+      {
+        "id": "6645a796-f909-4cb5-bf41-6cce7cc5ff1f",
+        "name": "Abciximab",
+        "dosage": "1 tablet",
+        "frequency": "Morning",
+        "stockLeft": 10,
+        "reminderTimes": [
+          "09:00"
+        ],
+        "lowStockAlertSent": false
+      },
+      {
+        "id": "1aefb114-d6da-48e5-94bc-229f786248fe",
+        "name": "Vomilast",
+        "dosage": "1 tablet",
+        "frequency": "Morning, Night (After Food)",
+        "stockLeft": 10,
+        "reminderTimes": [
+          "21:00"
+        ],
+        "lowStockAlertSent": false
+      },
+      {
+        "id": "ffa1b2d3-520c-46dc-b605-d04d8e56bc76",
+        "name": "Zoclar 500",
+        "dosage": "1 capsule",
+        "frequency": "Morning",
+        "stockLeft": 10,
+        "reminderTimes": [
+          "09:00"
+        ],
+        "lowStockAlertSent": false
+      },
+      {
+        "id": "0514ad3c-7d01-4dea-8640-6d23d27f58ec",
+        "name": "Gestakind 10/SR",
+        "dosage": "1 tablet",
+        "frequency": "Night",
+        "stockLeft": 10,
+        "reminderTimes": [
+          "21:00"
+        ],
+        "lowStockAlertSent": false
+      }
+    ]
   }
 }

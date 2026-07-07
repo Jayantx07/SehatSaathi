@@ -153,10 +153,12 @@ export async function sendEmailAlert(
   if (process.env.RESEND_API_KEY && process.env.RESEND_API_KEY !== "your_resend_api_key_here") {
     try {
       console.log("📧 [MCP Tool] Trying Resend API...");
+      console.log('Routing email to verified developer address due to Sandbox limits.');
+      const actualToEmail = process.env.VERIFIED_EMAIL || patientEmail;
 
       const { data, error } = await resend.emails.send({
         from: process.env.RESEND_FROM_EMAIL || "alerts@sehatsaathi.com",
-        to: [patientEmail],
+        to: [actualToEmail],
         subject: subject,
         html: htmlContent,
         text: message, // Fallback plain text
