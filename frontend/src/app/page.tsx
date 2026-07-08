@@ -3,7 +3,7 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import { useDropzone } from "react-dropzone";
 import { motion, AnimatePresence } from "framer-motion";
-import { Pill, CheckCircle, ShoppingCart, Bell, AlertTriangle, Trash2 } from "lucide-react";
+import { Pill, CheckCircle, ShoppingCart, Bell, AlertTriangle, Trash2, Clock } from "lucide-react";
 
 // ============================================================
 // TYPE DEFINITIONS
@@ -58,7 +58,7 @@ interface AnalysisResult {
   processingTime: string;
 }
 
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:5000";
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || (typeof window !== "undefined" && window.location.hostname !== "localhost" ? `http://${window.location.hostname}:5000` : "http://localhost:5000");
 
 const DEMO_RESULT: AnalysisResult = {
   medicines: [
@@ -421,14 +421,14 @@ export default function Dashboard() {
       {/* HERO */}
       <section className="hero">
         <div className="hero-copy">
-          <p className="eyebrow">Multi-agent pipeline · Kaggle Hackathon 2025</p>
+          <p className="eyebrow">Multi-agent pipeline</p>
           <h1>Your prescription,<br /><em>read like a pharmacist would.</em></h1>
           <p className="lede">
             Photograph any prescription, typed or handwritten. Four specialist agents mask who you are, read what the doctor wrote, check it against known drug interactions, and hand back a plain-English answer — before the photo would've finished uploading anywhere else.
           </p>
           <div className="hero-actions">
             <button className="btn-primary" onClick={() => document.getElementById('upload')?.scrollIntoView({ behavior: 'smooth' })}>
-              Scan your prescription
+              Scan Your Prescription
             </button>
             <span className="hero-hint">or try the sample below ↓</span>
           </div>
@@ -653,40 +653,43 @@ export default function Dashboard() {
                         transition={{ duration: 0.3 }}
                         style={{ background: 'rgba(255,255,255,0.6)', backdropFilter: 'blur(12px)', border: '1px solid rgba(0,0,0,0.05)', borderRadius: '16px', padding: '20px', boxShadow: '0 4px 20px rgba(0,0,0,0.03)' }}
                       >
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                          <div style={{ display: 'flex', gap: '16px' }}>
-                            <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'var(--paper-deep)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--ink)' }}>
-                              <Pill size={24} />
-                            </div>
-                            <div>
-                              <div style={{ fontSize: '18px', fontWeight: 700, color: 'var(--ink)' }}>{med.name}</div>
-                              <div style={{ fontSize: '14px', color: 'var(--ink-light)', marginTop: '2px' }}>{med.dosage} · {med.frequency}</div>
-                              <div style={{ display: 'flex', gap: '6px', marginTop: '10px' }}>
-                                {med.reminderTimes.map((time: string, i: number) => (
-                                  <span key={i} style={{ fontSize: '12px', background: 'rgba(0,0,0,0.04)', padding: '4px 8px', borderRadius: '6px', fontWeight: 600, color: 'var(--ink)' }}>⏰ {time}</span>
-                                ))}
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                            <div style={{ display: 'flex', gap: '16px' }}>
+                              <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'var(--paper-deep)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--ink)', flexShrink: 0 }}>
+                                <Pill size={24} />
+                              </div>
+                              <div>
+                                <div style={{ fontSize: '18px', fontWeight: 700, color: 'var(--ink)' }}>{med.name}</div>
+                                <div style={{ fontSize: '14px', color: 'var(--ink-light)', marginTop: '2px' }}>{med.dosage} · {med.frequency}</div>
                               </div>
                             </div>
+                            <button
+                              onClick={() => deleteMedicine(med.id, med.name)}
+                              title="Remove Medicine"
+                              style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'transparent', border: 'none', color: 'var(--ink-light)', cursor: 'pointer', padding: '4px', opacity: 0.6, transition: 'all 0.2s', marginLeft: '8px' }}
+                              onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--pulse)'; e.currentTarget.style.opacity = '1'; }}
+                              onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--ink-light)'; e.currentTarget.style.opacity = '0.6'; }}
+                            >
+                              <Trash2 size={16} />
+                            </button>
                           </div>
                           
-                          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '10px' }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                              <div style={{ fontSize: '14px', fontWeight: 600, color: med.stockLeft <= 3 ? 'var(--pulse)' : 'var(--sage)' }}>
-                                {med.stockLeft} pills remaining
-                              </div>
-                              <button
-                                onClick={() => deleteMedicine(med.id, med.name)}
-                                title="Remove Medicine"
-                                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'transparent', border: 'none', color: 'var(--ink-light)', cursor: 'pointer', padding: '4px', opacity: 0.6, transition: 'all 0.2s' }}
-                                onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--pulse)'; e.currentTarget.style.opacity = '1'; }}
-                                onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--ink-light)'; e.currentTarget.style.opacity = '0.6'; }}
-                              >
-                                <Trash2 size={16} />
-                              </button>
+                          <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                            {med.reminderTimes.map((time: string, i: number) => (
+                              <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', fontSize: '13px', background: 'rgba(0,0,0,0.04)', padding: '6px 10px', borderRadius: '8px', fontWeight: 600, color: 'var(--ink)' }}>
+                                <Clock size={14} style={{ color: 'var(--pulse)' }} /> {time}
+                              </span>
+                            ))}
+                          </div>
+                          
+                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '12px', borderTop: '1px dashed rgba(0,0,0,0.08)', flexWrap: 'wrap', gap: '12px' }}>
+                            <div style={{ fontSize: '14px', fontWeight: 600, color: med.stockLeft <= 3 ? 'var(--pulse)' : 'var(--sage)' }}>
+                              {med.stockLeft} pills remaining
                             </div>
                             
                             {med.stockLeft <= 3 ? (
-                              <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                              <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
                                 {activeRefillId === med.id ? (
                                   <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                                     <input 
@@ -838,7 +841,7 @@ export default function Dashboard() {
       {/* FOOTER */}
       <footer>
         <div className="foot-row">
-          <span className="foot-brand">Sehat Saathi · Kaggle Hackathon 2025</span>
+          <span className="foot-brand">Sehat Saathi</span>
           <div className="foot-tags">
             <span className="foot-tag">PII Masker</span>
             <span className="foot-tag">Vision AI</span>

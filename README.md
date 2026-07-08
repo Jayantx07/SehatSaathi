@@ -4,8 +4,6 @@
 
 ### AI-Powered Multi-Agent Clinical Decision Support & Medication Concierge
 
-**Kaggle Google AI Agents Hackathon 2026 Submission**
-
 ![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js)
 ![Node.js](https://img.shields.io/badge/Node.js-Backend-green?logo=node.js)
 ![Express](https://img.shields.io/badge/Express.js-API-black?logo=express)
@@ -86,7 +84,7 @@ This modular architecture allows future integration with standardized clinical k
 
 ---
 
-# How to Demo to Judges
+# How to Demo
 
 ### 1. Install the dependencies
 Install the backend dependencies: `cd backend` and then `npm install`.
@@ -228,8 +226,6 @@ If you find this project valuable:
 ---
 
 # Acknowledgements
-
-Built as part of the **Kaggle Google AI Agents Hackathon 2026**.
 
 This project demonstrates how Multi-Agent AI, Clinical Decision Support Systems (CDSS), and autonomous workflows can improve medication safety and adherence while maintaining a privacy-aware architecture.
 
